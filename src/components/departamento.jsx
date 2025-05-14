@@ -12,7 +12,7 @@ const  Departamento = () => {
                 camiseta
             </div>
             <div className="departamento">
-                <div className="icon">
+                <div className="bone">
                     <img src={bone} alt="" />
                 </div>
                 boné
@@ -35,7 +35,7 @@ const  Departamento = () => {
 
             <div className="departamento">
                 <div className="icon">
-                    <img src={headfone} alt="" />
+                    <img src={headfone} alt="" className="headfone"/>
                 </div>
                 HeadFones
 

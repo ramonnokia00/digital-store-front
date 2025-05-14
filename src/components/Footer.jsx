@@ -22,7 +22,7 @@ const Footer = () => {
 
         <div className="lista_fora">
           <ul className="lista_dentro">
-            <li><h5>Informação</h5></li>
+            <li><h5>Informações</h5></li>
             <li><a href="">Sobre Drip Store</a></li>
             <li><a href="">Segurança</a></li>
             <li><a href="">Blog</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
 
         <div className="lista_fora">
           <ul className="lista_dentro">
-            <li><h5>Contato</h5></li>
+            <li><h5>Contatos</h5></li>
             <li>
               <address>Av. Santos Dumont, 1510 - 1º andar - Aldeota, Fortaleza - CE, 60150-161</address>
             </li>
