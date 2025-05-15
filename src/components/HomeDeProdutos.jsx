@@ -2,10 +2,26 @@ import sapatassso from "../assets/sapatao_foda.png"
 const HomeProdutos = () => {
     return ( 
         <>
-        <div className="flex">
-
+        <div className="bg-white w-[300px] h-[720px] ml-[20px] " id="Marka">
+            <h4 className="text-gray-600 underline">Filtrar Por</h4>
+      <label htmlFor="">  
+     <input type="checkbox" placeholder="Adidas" className=""/>
+     </label>
+      <label htmlFor="">  
+     <input type="checkbox" placeholder="Adidas" className=""/>
+     </label>
+      <label htmlFor="">  
+     <input type="checkbox" placeholder="Adidas" className=""/>
+     </label>
+      <label htmlFor="">  
+     <input type="checkbox" placeholder="Adidas" className=""/>
+     </label>
+      <label htmlFor="">  
+     <input type="checkbox" placeholder="Adidas" className=""/>
+     </label>
+     
         </div>
-         <section id="produtos">
+         <section id="produtos" className="">
                     <div className="titulo">
                         <h3>Produtos Em alta</h3>
                         <a href=""> Ver Todos</a>
