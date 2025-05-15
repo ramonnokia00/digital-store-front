@@ -1,7 +1,13 @@
+import Footer from "../components/Footer";
+import HeaderProdutos from "../components/HeaderProdutos";
+import HomeProdutos from "../components/HomeProdutos";
+
 const Produtos = () => {
     return ( 
         <>
-        <h1>Pagina de Produtos</h1>
+      <HeaderProdutos/>
+      <HomeProdutos/>
+      <Footer/>
         </>
      );
 }
