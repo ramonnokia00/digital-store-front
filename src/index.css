@@ -9,7 +9,8 @@
  --color-azul-claro: #85b6f2;
  --color-azul: #4200FF;
  --color-grafite: #474747;
- --color-amarelo: #f6aa1c
+ --color-amarelo: #f6aa1c;
+ --color-lima: #E7FF86;
 }
 
 * {
@@ -340,7 +341,7 @@ main {
 
     .cards {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         gap: 24px;
         margin-top: 50px;
 
