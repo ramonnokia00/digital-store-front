@@ -1,6 +1,25 @@
-import sapatao from "../assets/sapatao_foda.png"
+
+import { useState } from "react";
+import Produto from "../components/Produto";
+
 
 const Produtos = () => {
+  const [filtroMarca, setFiltroMarca] = useState([]);
+  // const [filtroCategoria, setFiltroCategoria] = useState([]);
+  // const [filtroGenero, setFiltroGenerp] = useState([]);
+  // const [filtroEstado, setFiltroEstado] = useState("novo");
+  
+  console.log(filtroMarca);
+  
+
+  function verificarMarca(marca){
+    if(filtroMarca.includes(marca)){
+      setFiltroMarca([...filtroMarca.filter(cadaMarca => cadaMarca != 
+        marca)]);
+    }else{
+      setFiltroMarca([...filtroMarca, marca])
+    }
+  }
   return (
     <>
       <div className="xl:px-[100px] xl:pt-[40px] xl:pb-[140px]">
@@ -21,23 +40,23 @@ const Produtos = () => {
             <h5 className="border-b-1 pb-2">Filtrar Por </h5>
             <h6 className="mt-2 font-bold text-grafite">Marca</h6>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
-              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
+              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Adidas")}/>
               Adidas
             </label>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
-              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
+              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Balanciaga")}/>
               Balanciaga
             </label>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
-              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
+              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("K-Swiss")}/>
               K-Swiss
             </label>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
-              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
+              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Nike")}/>
               Nike
             </label>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
-              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
+              <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600"onChange={() => verificarMarca("Puma")} />
               Puma
             </label>
             <h6 className="mt-2 font-bold text-grafite">Categoria</h6>
@@ -55,7 +74,7 @@ const Produtos = () => {
             </label>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" />
-              Carrinho
+              Corrida
             </label>
             <h6 className="text-grafite mt-2 font-bold">Gênero</h6>
             <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
@@ -72,53 +91,25 @@ const Produtos = () => {
             </label>
             <h6 className="mt-2 font-bold text-grafite">Estado</h6>
             <label htmlFor="" className="flex gap-2 mt-2">
-              <input type="radio" className="w-[20px]" />
+              <input type="radio" className="w-[20px] accent-pink-600" />
               Novo
             </label>
             <label htmlFor="" className="flex gap-2 mt-2">
-              <input type="radio" className="w-[20px]" />
+              <input type="radio" className="w-[20px] accent-pink-600" />
               Usado
             </label>
           </div>
-          <div className="grid-cols-3 mt-[40px] ml-[100px]">
-            <a href="">
-              <div className=" bg-white w-[270px] h-[320px] rounded">
-                <div>
-                  <p className="text-sm leading-8 uppercase bg-lima inline-block mb-2 ml-[30px]  mt-[20px] rounded px-[12px]">30% OFF</p>
-                </div>
-                <img src={sapatao} alt="" className="w-full items-center" />
-              </div>
-                <p className="text-grafite font-bold mt-1">Tênis</p>
-                <h4 className="text-grafite text-2xl">K-Swiss V8 - Masculino</h4>
-                <h5><del>$200</del>$100</h5>
-            </a>
+          <div className="grid-cols-3 grid gap-6 ml-[200px] rounded-[20px]">
+            <Produto />
+            <Produto />
+            <Produto />
+            <Produto />
+            <Produto />
+            <Produto />
           </div>
-          <div className="grid-cols-3 mt-[40px] ml-[100px]">
-            <a href="">
-              <div className=" bg-white w-[270px] h-[320px] rounded">
-                <div>
-                  <p className="text-sm leading-8 uppercase bg-lima inline-block mb-2 ml-[30px]  mt-[20px] rounded px-[12px]">30% OFF</p>
-                </div>
-                <img src={sapatao} alt="" className="w-full items-center" />
-              </div>
-                <p className="text-grafite font-bold mt-1">Tênis</p>
-                <h4 className="text-grafite text-2xl">K-Swiss V8 - Masculino</h4>
-                <h5><del>$200</del>$100</h5>
-            </a>
-          </div>
-          <div className="grid-cols-3 mt-[40px] ml-[100px]">
-            <a href="">
-              <div className=" bg-white w-[270px] h-[320px] rounded">
-                <div>
-                  <p className="text-sm leading-8 uppercase bg-yellow-500 inline-block mb-2 ml-[30px]  mt-[20px] rounded px-[12px]">30% OFF</p>
-                </div>
-                <img src={sapatao} alt="" className="w-full items-center" />
-              </div>
-                <p className="text-grafite font-bold mt-1">Tênis</p>
-                <h4 className="text-grafite text-2xl">K-Swiss V8 - Masculino</h4>
-                <h5><del>$200</del>$100</h5>
-            </a>
-          </div>
+
+
+
         </div>
       </div>
     </>
