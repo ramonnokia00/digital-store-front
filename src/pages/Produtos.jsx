@@ -1,16 +1,17 @@
 
 import { useState } from "react";
 import Produto from "../components/Produto";
+import { AXIOS } from "../services";
 
 
 const Produtos = () => {
   const [filtroMarca, setFiltroMarca] = useState([]);
   const [filtroCategoria, setFiltroCategoria] = useState([]);
   const [filtroGenero, setFiltroGenero] = useState([]);
-  const [filtroEstado, setFiltroEstado] = useState([]);
+  const [filtroEstado, setFiltroEstado] = useState("Novo");
+  const [produtos, setProduto] = useState([]);
   
-  
-  
+  console.log(filtroMarca , filtroCategoria , filtroGenero ,  filtroEstado);
 
   function verificarMarca(marca){
     if(filtroMarca.includes(marca)){
@@ -20,7 +21,7 @@ const Produtos = () => {
       setFiltroMarca([...filtroMarca, marca])
     }
   }
-  console.log(filtroMarca);
+  
   function verificarCategoria(categoria) {
     if(filtroCategoria.includes(categoria)){
       setFiltroCategoria([...filtroCategoria.filter(cadaCategoria => cadaCategoria !=
@@ -31,7 +32,7 @@ const Produtos = () => {
     
     
   }
-  console.log(filtroCategoria);
+  
   function verificarGenero(genero) {
     if(filtroGenero.includes(genero)){
       setFiltroGenero([...filtroGenero.filter(cadaGenero => cadaGenero != genero)]);
@@ -39,15 +40,15 @@ const Produtos = () => {
       setFiltroGenero([...filtroGenero, genero])
     }
   }
-  console.log(filtroGenero);
+  
   function verificarEstado(estado) {
-    if(filtroEstado.includes(estado)){
-      setFiltroEstado([...filtroEstado.filter(cadaEstado => cadaEstado != estado)])
-    }else{
-      setFiltroEstado([...filtroEstado, estado])
-    }
+      setFiltroEstado(estado)
   }
-  console.log(filtroEstado);
+  function buscarProdutos() {
+    const response =  AXIOS.get("/produtos");
+    console.log(response.data);
+        
+  }
   
   return (
     <>
@@ -68,63 +69,65 @@ const Produtos = () => {
           <div className="bg-white rounded p-[30px] w-[300px] mt-[40px]">
             <h5 className="border-b-1 pb-2">Filtrar Por </h5>
             <h6 className="mt-2 font-bold text-grafite">Marca</h6>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Adidas")}/>
               Adidas
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Balanciaga")}/>
               Balanciaga
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("K-Swiss")}/>
               K-Swiss
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarMarca("Nike")}/>
               Nike
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600"onChange={() => verificarMarca("Puma")} />
               Puma
             </label>
             <h6 className="mt-2 font-bold text-grafite">Categoria</h6>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarCategoria("Esporte e Lazer")}/>
               Esporte e lazer
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarCategoria("Casual")}/>
               Casual
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarCategoria("Utilitario")}/>
               Utilitario
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarCategoria("Corridas")}/>
               Corrida
             </label>
             <h6 className="text-grafite mt-2 font-bold">Gênero</h6>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarGenero("masculino")}/>
               Masculino
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label  className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarGenero("feminino")}/>
               Feminino
             </label>
-            <label htmlFor="" className="mt-3 flex gap-[10px] items-center">
+            <label className="mt-3 flex gap-[10px] items-center">
               <input type="checkbox" className="w-[22px] h-[22px] accent-pink-600" onChange={() => verificarGenero("Unisex")}/>
               Unisex
             </label>
             <h6 className="mt-2 font-bold text-grafite">Estado</h6>
-            <label htmlFor="" className="flex gap-2 mt-2">
-              <input type="radio" className="w-[20px] accent-pink-600" onChange={() => verificarEstado("Novo")}/>
+            <label className="flex gap-2 mt-2">
+              <input type="radio" className="w-[20px] accent-pink-600" onChange={() => verificarEstado("Novo")}
+              checked={filtroEstado == "Novo"}/>
               Novo
             </label>
-            <label htmlFor="" className="flex gap-2 mt-2">
-              <input type="radio" className="w-[20px] accent-pink-600" onChange={() => verificarEstado("Usado")}/>
+            <label className="flex gap-2 mt-2">
+              <input type="radio" className="w-[20px] accent-pink-600" onChange={() => verificarEstado("Usado")}
+              checked={filtroEstado == "Usado"}/>
               Usado
             </label>
           </div>
