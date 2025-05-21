@@ -2,8 +2,8 @@
     "produtos": [
         {
             "id": 1,
-            "nome": "sapato da nike",
-            "marca": "nike",
+            "nome": "Sapato da nike",
+            "marca": "Nike",
             "categoria": "corrida",
             "preco": 300,
             "genero": "masculino",
@@ -12,8 +12,8 @@
         },
         {
             "id": 2,
-            "nome": "sapato da puma",
-            "marca": "puma",
+            "nome": "Sapato da puma",
+            "marca": "Puma",
             "categoria": "Utilitario",
             "preco": 900,
             "genero": "Feminino",
@@ -22,8 +22,8 @@
         },
         {
             "Id": 3,
-            "nome": "sapato da balanciaga",
-            "marca": "balanciaga",
+            "nome": "Sapato da balanciaga",
+            "marca": "Balenciaga",
             "categoria": "casual",
             "preco": 2000,
             "desconto": 0,
@@ -32,7 +32,7 @@
         },
         {
             "Id": 4,
-            "nome": "sapato da Adidas",
+            "nome": "Sapato da Adidas",
             "marca": "Adidas",
             "categoria": "corrida",
             "preco": 400,
