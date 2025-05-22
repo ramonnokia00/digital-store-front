@@ -1,8 +1,14 @@
 import logo from '../assets/logodigital.png';
 import lupa from '../assets/lupa.png';
 import carrinho from '../assets/carrinho.png';
+import { NavLink } from 'react-router';
+import { useContext, } from 'react';
+import { LoginContext } from '../context/Logincontext';
 
 const Header = () => {
+
+  const { logado } = useContext(LoginContext);
+
   return (
     <header>
       <div className="topo">
@@ -15,8 +21,8 @@ const Header = () => {
           <img src={lupa} alt="Lupa" />
         </div>
         <div className="acoes">
-          <a href="">Cadastre-se</a>
-          <a href="" className="btn">Entrar</a>
+          <a href="/auth">Cadastre-se</a>
+          <a href="/auth" className="btn">Entrar</a>
           <div className="carrinho">
             <img src={carrinho} alt="Carrinho" />
             <span>2</span>
@@ -24,10 +30,15 @@ const Header = () => {
         </div>
       </div>
       <nav>
-        <a href="/" className="active">Home</a>
-        <a href="/produtos">Produtos</a>
-        <a href="/categorias">Categorias</a>
-        <a href="/meus-pedidos">Meus Pedidos</a>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/produtos">Produtos</NavLink>
+        <NavLink to="/categorias">Categoria</NavLink>
+        {
+          logado && (
+            <NavLink to="/meus-pedidos">Meus pedidos</NavLink>
+          )
+        }
+        
       </nav>
     </header>
   );
