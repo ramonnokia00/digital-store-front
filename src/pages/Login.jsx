@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { LoginContext } from "../context/Logincontext";
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 const Login = () => {
     const { setLogado } = useContext(LoginContext);
@@ -8,8 +9,9 @@ const Login = () => {
     function onLogin(event) {
         event.preventDefault();
         setLogado(true);
-        navigate("/")
+        navigate("/");
         
+    
     }
     return (<>
         <div className="bg-white p-[30px] rounded xl:w-[580px]">
