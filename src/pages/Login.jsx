@@ -1,17 +1,39 @@
-import { useContext } from "react";
-import { LoginContext } from "../context/Logincontext";
+import { useContext, useRef } from "react";
+import { LoginContext } from "../contexts/Logincontext";
 import { useNavigate } from "react-router";
-import axios from "axios";
+
+import { AXIOS } from "../services";
 
 const Login = () => {
     const { setLogado } = useContext(LoginContext);
-    const navigate = useNavigate()
-    function onLogin(event) {
+    const navigate = useNavigate();
+
+    const emailRef = useRef();
+    const senhaRef = useRef();
+
+
+    async function onLogin(event) {
         event.preventDefault();
-        setLogado(true);
-        navigate("/");
+        let dados = {
+            usuario_email: emailRef.current.value,
+            usuario_senha: senhaRef.current.value
+        }
+        const request = await AXIOS.post("/login", dados)
         
-    
+        if(request.data.token) {
+            sessionStorage.setItem("token", request.data.token);
+            sessionStorage.setItem("usuario", JSON.stringify(request.data.usuario));
+            setLogado(true);
+            navigate("/");
+            return;
+        }
+        alert(request.data.token)
+        
+
+        // setLogado;(true);
+        // navigate("/");
+
+
     }
     return (<>
         <div className="bg-white p-[30px] rounded xl:w-[580px]">
@@ -20,12 +42,14 @@ const Login = () => {
                 <p className="text-center text-grafite xl:text-left mb-[30px]">Novo Cliente? Então resgistre-se <a href="" className="underline hover:text-rosa">aqui.</a></p>
                 <label >Login *</label>
                 <input
+                    ref={emailRef}
                     type="text"
                     placeholder="insira seu Login ou Email"
                     className="bg-grafite/5 rounded w-full mb-5 h-[50px] duration-150 outline-transparent pl-4 focus:outline-rosa"
                 />
                 <label >Senha *</label>
                 <input
+                    ref={senhaRef}
                     type="password"
                     placeholder="insira sua Senha"
                     className="bg-grafite/5 rounded w-full mb-5 h-[50px] duration-150 outline-transparent pl-4 focus:outline-rosa"

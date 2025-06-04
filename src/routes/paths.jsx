@@ -6,6 +6,7 @@ import PageLayout from "../Layouts/PageLayout";
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../pages/Login";
 
+
 const Paths = () => {
     return ( 
         <BrowserRouter>

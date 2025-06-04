@@ -1,12 +1,13 @@
 
-import LoginProvider from "./context/Logincontext";
+import LoginProvider from "./contexts/Logincontext";
 import Paths from "./routes/paths";
 
 
 
 const App = () => {
   return ( 
-    <><LoginProvider>
+    <>
+    <LoginProvider>
     <Paths />  
     </LoginProvider>
     

@@ -3,11 +3,11 @@ import lupa from '../assets/lupa.png';
 import carrinho from '../assets/carrinho.png';
 import { NavLink } from 'react-router';
 import { useContext, } from 'react';
-import { LoginContext } from '../context/Logincontext';
+import { LoginContext } from '../contexts/Logincontext';
 
 const Header = () => {
 
-  const { logado } = useContext(LoginContext);
+  const { logado, usuario } = useContext(LoginContext);
 
   return (
     <header>
@@ -21,8 +21,17 @@ const Header = () => {
           <img src={lupa} alt="Lupa" />
         </div>
         <div className="acoes">
-          <a href="/auth">Cadastre-se</a>
-          <a href="/auth" className="btn">Entrar</a>
+          {
+            usuario.usuario_nome ? (
+              <h3 className='mr-2 text-[#c92071]'>{usuario.usuario_nome}</h3>
+            ) : (
+              <>
+                <a href="/auth">Cadastre-se</a>
+                <a href="/auth" className="btn">Entrar</a>
+              </>
+            )
+          }
+
           <div className="carrinho">
             <img src={carrinho} alt="Carrinho" />
             <span>2</span>
@@ -38,7 +47,7 @@ const Header = () => {
             <NavLink to="/meus-pedidos">Meus pedidos</NavLink>
           )
         }
-        
+
       </nav>
     </header>
   );
